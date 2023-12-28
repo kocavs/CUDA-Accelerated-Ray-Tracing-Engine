@@ -59,7 +59,19 @@ class vec3{
             return sqrt(length_squared());
         }
 
-       
+        inline static vec3 random() {
+            return vec3(random_float(), random_float(), random_float());
+        }
+
+        inline static vec3 random(float min, float max) {
+            return vec3(random_float(min, max), random_float(min, max), random_float(min, max));
+        }
+
+         bool near_zero() const {
+            // Return true if the vector is close to zero in all dimensions.
+            const auto s = 1e-8;
+            return (fabs(val[0]) < s) && (fabs(val[1]) < s) && (fabs(val[2]) < s);
+        }
 };
 
 // Type aliases for vec3
@@ -85,15 +97,15 @@ inline vec3 operator*(const vec3 &u, const vec3 &v) {
     return vec3(u.val[0] * v.val[0], u.val[1] * v.val[1], u.val[2] * v.val[2]);
 }
 
-inline vec3 operator*(double t, const vec3 &v) {
+inline vec3 operator*(float t, const vec3 &v) {
     return vec3(t*v.val[0], t*v.val[1], t*v.val[2]);
 }
 
-inline vec3 operator*(const vec3 &v, double t) {
+inline vec3 operator*(const vec3 &v, float t) {
     return t * v;
 }
 
-inline vec3 operator/(vec3 v, double t) {
+inline vec3 operator/(vec3 v, float t) {
     return (1/t) * v;
 }
 
@@ -112,5 +124,30 @@ inline vec3 cross(const vec3 &u, const vec3 &v) {
 inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
+
+vec3 random_in_unit_sphere() {
+    while (true) {
+        auto p = vec3::random(-1,1);
+        if (p.length_squared() >= 1) continue;
+        return p;
+    } 
+}
+
+vec3 random_unit_vector() {
+    return unit_vector(random_in_unit_sphere());
+}
+
+vec3 random_in_hemisphere(const vec3& normal) {
+    vec3 in_unit_sphere = random_in_unit_sphere();
+    if (dot(in_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
+        return in_unit_sphere;
+    else
+        return -in_unit_sphere;
+}
+
+vec3 reflect(const vec3& v, const vec3& n) {
+    return v - 2*dot(v,n)*n;
+}
+
 #endif
 
