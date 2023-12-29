@@ -21,22 +21,13 @@ public:
 
     void clear() { objects.clear(); }
     void add(shared_ptr<hittable> object) { objects.push_back(object); }
+    int length(){return objects.size();}
+    shared_ptr<hittable> get(int index) const {
+        if (index < 0 || index >= objects.size()) {
+            return nullptr; // or throw an exception
+        }
+        return objects[index];
+    }
     virtual bool hit( const ray& r, float t_min, float t_max, hit_record& rec) const override;
 };
-
-bool hittableList::hit(const ray& r, float t_min, float t_max, hit_record& rec) const{
-    hit_record tmp;
-    bool is_hit = false;
-    float cloest_p = t_max;
-
-    for (const auto &object : objects)
-    {
-        if(object->hit(r, t_min, cloest_p, tmp)){
-            is_hit = true;
-            cloest_p = tmp.t;
-            rec = tmp;
-        }
-    }
-    return is_hit;
-}
 #endif

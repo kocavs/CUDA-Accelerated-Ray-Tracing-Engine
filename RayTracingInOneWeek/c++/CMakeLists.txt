@@ -9,12 +9,13 @@ find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
 # Include directories
+include_directories(src)
 include_directories(include)
 include_directories(libs/imgui)
 include_directories(libs/imgui/backends)
 
 # Add executable
-add_executable(${PROJECT_NAME} src/main.cpp libs/imgui/imgui.cpp libs/imgui/imgui_draw.cpp libs/imgui/imgui_widgets.cpp libs/imgui/imgui_tables.cpp libs/imgui/backends/imgui_impl_glfw.cpp libs/imgui/backends/imgui_impl_opengl3.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp include/hittableList.cpp include/renderer.cpp include/sphere.cpp libs/imgui/imgui.cpp libs/imgui/imgui_draw.cpp libs/imgui/imgui_widgets.cpp libs/imgui/imgui_tables.cpp libs/imgui/backends/imgui_impl_glfw.cpp libs/imgui/backends/imgui_impl_opengl3.cpp)
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} glfw OpenGL::GL)

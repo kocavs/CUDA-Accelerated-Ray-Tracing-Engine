@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cuda_runtime.h>
+#include <time.h>
 
 __global__ void render(float *img, int max_x, int max_y) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -21,15 +22,31 @@ int main() {
     const int img_height = 256;
     const int img_size = img_wid * img_height * 3;
     float *img_buffer;
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
 
     cudaMallocManaged(&img_buffer, img_size * sizeof(float));
 
+    // Start record
+    cudaEventRecord(start);
     dim3 blocks(img_wid / 16, img_height / 16);
     dim3 threads(16, 16);
-
+    
     render<<<blocks, threads>>>(img_buffer, img_wid, img_height);
 
     cudaDeviceSynchronize();
+    
+    // Stop record
+    cudaEventRecord(stop);
+    cudaEventSynchronize(stop);
+
+    // Calculate elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    std::cerr << "Image generation took " << milliseconds << " milliseconds.\n";
+
 
     std::cout << "P3\n" << img_wid << ' ' << img_height << "\n255\n";
     for(int j = 0; j < img_height; ++j) {
@@ -48,5 +65,7 @@ int main() {
     }
 
     cudaFree(img_buffer);
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
     return 0;
 }

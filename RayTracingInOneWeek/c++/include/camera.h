@@ -1,7 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "hitUtils.h"
+#include "vec3.h"
+#include "ray.h"
 #include <cmath>
 
 class Camera {
@@ -12,10 +13,7 @@ private:
     vec3 vertical;
 
 public:
-    vec3 get_origin() const { return origin; }
-    vec3 get_lower_left_corner() const { return lower_left_corner; }
-    vec3 get_horizontal() const { return horizontal; }
-    vec3 get_vertical() const { return vertical; }
+    Camera() {}
 
     // vertical field-of-view in degrees
     Camera(point3 lookfrom, point3 lookat, vec3 vup, float vfov, float aspect_ratio) {
@@ -34,6 +32,10 @@ public:
         lower_left_corner = origin - horizontal/2 - vertical/2 - w;
     }
 
+    vec3 get_origin() const { return origin; }
+    vec3 get_lower_left_corner() const { return lower_left_corner; }
+    vec3 get_horizontal() const { return horizontal; }
+    vec3 get_vertical() const { return vertical; }
     // Function to get ray from camera to viewport
     ray get_ray(float s, float t) const {
         return ray(origin, lower_left_corner + s*horizontal + t*vertical - origin);

@@ -2,6 +2,7 @@
 #define HITTABLE_H
 
 #include "ray.h"
+
 class material;
 
 struct hit_record {

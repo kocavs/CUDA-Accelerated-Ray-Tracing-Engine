@@ -129,6 +129,78 @@ RayTracing/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/build
 .PHONY : RayTracing/fast
 
+include/hittableList.o: include/hittableList.cpp.o
+.PHONY : include/hittableList.o
+
+# target to build an object file
+include/hittableList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/hittableList.cpp.o
+.PHONY : include/hittableList.cpp.o
+
+include/hittableList.i: include/hittableList.cpp.i
+.PHONY : include/hittableList.i
+
+# target to preprocess a source file
+include/hittableList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/hittableList.cpp.i
+.PHONY : include/hittableList.cpp.i
+
+include/hittableList.s: include/hittableList.cpp.s
+.PHONY : include/hittableList.s
+
+# target to generate assembly for a file
+include/hittableList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/hittableList.cpp.s
+.PHONY : include/hittableList.cpp.s
+
+include/renderer.o: include/renderer.cpp.o
+.PHONY : include/renderer.o
+
+# target to build an object file
+include/renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/renderer.cpp.o
+.PHONY : include/renderer.cpp.o
+
+include/renderer.i: include/renderer.cpp.i
+.PHONY : include/renderer.i
+
+# target to preprocess a source file
+include/renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/renderer.cpp.i
+.PHONY : include/renderer.cpp.i
+
+include/renderer.s: include/renderer.cpp.s
+.PHONY : include/renderer.s
+
+# target to generate assembly for a file
+include/renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/renderer.cpp.s
+.PHONY : include/renderer.cpp.s
+
+include/sphere.o: include/sphere.cpp.o
+.PHONY : include/sphere.o
+
+# target to build an object file
+include/sphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/sphere.cpp.o
+.PHONY : include/sphere.cpp.o
+
+include/sphere.i: include/sphere.cpp.i
+.PHONY : include/sphere.i
+
+# target to preprocess a source file
+include/sphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/sphere.cpp.i
+.PHONY : include/sphere.cpp.i
+
+include/sphere.s: include/sphere.cpp.s
+.PHONY : include/sphere.s
+
+# target to generate assembly for a file
+include/sphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTracing.dir/build.make CMakeFiles/RayTracing.dir/include/sphere.cpp.s
+.PHONY : include/sphere.cpp.s
+
 libs/imgui/backends/imgui_impl_glfw.o: libs/imgui/backends/imgui_impl_glfw.cpp.o
 .PHONY : libs/imgui/backends/imgui_impl_glfw.o
 
@@ -306,6 +378,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... RayTracing"
+	@echo "... include/hittableList.o"
+	@echo "... include/hittableList.i"
+	@echo "... include/hittableList.s"
+	@echo "... include/renderer.o"
+	@echo "... include/renderer.i"
+	@echo "... include/renderer.s"
+	@echo "... include/sphere.o"
+	@echo "... include/sphere.i"
+	@echo "... include/sphere.s"
 	@echo "... libs/imgui/backends/imgui_impl_glfw.o"
 	@echo "... libs/imgui/backends/imgui_impl_glfw.i"
 	@echo "... libs/imgui/backends/imgui_impl_glfw.s"

@@ -32,7 +32,4 @@ inline float random_float(float min, float max) {
     return min + (max-min)*random_float();
 }
 
-#include "ray.h"
-#include "vec3.h"
-
 #endif
