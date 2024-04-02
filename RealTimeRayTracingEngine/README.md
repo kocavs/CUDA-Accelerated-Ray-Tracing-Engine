@@ -6,7 +6,7 @@ This project is a real-time ray tracing engine developed in C++. It utilizes GLF
 
 ## Prerequisites
 
-- CMake (version 3.15 or higher recommended)
+- CMake (version 3.10 or higher recommended)
 - A C++ compiler compatible with C++11 or higher (e.g., GCC, Clang)
 - GLFW
 - OpenGL
@@ -18,11 +18,7 @@ This project uses CMake for easy compilation and building. Follow these steps to
 
 1. **Clone the Repository**
 
-    Ensure you have cloned the repository to your local machine.
-
 2. **Navigate to the Project Directory**
-
-    Open a terminal and navigate to the root of the project directory.
 
 3. **Create a Build Directory**
 
@@ -47,7 +43,7 @@ This project uses CMake for easy compilation and building. Follow these steps to
     make
     ```
 
-    This will generate an executable named `RayTracingEngine` (or another name if you've specified it differently in your CMakeLists.txt).
+    This will generate an executable named `RayTracing`.
 
 ## Running the Engine
 
