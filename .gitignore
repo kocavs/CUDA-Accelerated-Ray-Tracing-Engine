@@ -6,11 +6,10 @@ build/
 
 # Ignore .DS_Store files
 .DS_Store
-RayTracingInOneWeek/.DS_Store
+./.DS_Store
 
 # Ignore imgui directories
-RayTracingInOneWeek/c++/libs/*
-RayTracingInOneWeek/c++/CMakeFiles/*
-RayTracingInOneWeek/c++/CMakeCache.txt
-RayTracingInOneWeek/c++/*.cmake
-RayTracingInOneWeek/c++/imgui*
+./RealTimeRayTracingEngine/CMakeFiles/*
+./RealTimeRayTracingEngine/CMakeCache.txt
+./RealTimeRayTracingEngine/*.cmake
+./RealTimeRayTracingEngine/imgui*
