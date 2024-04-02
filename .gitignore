@@ -9,7 +9,7 @@ build/
 ./.DS_Store
 
 # Ignore imgui directories
-./RealTimeRayTracingEngine/CMakeFiles/*
-./RealTimeRayTracingEngine/CMakeCache.txt
-./RealTimeRayTracingEngine/*.cmake
-./RealTimeRayTracingEngine/imgui*
+RealTimeRayTracingEngine/CMakeFiles/*
+RealTimeRayTracingEngine/CMakeCache.txt
+RealTimeRayTracingEngine/*.cmake
+RealTimeRayTracingEngine/imgui*
